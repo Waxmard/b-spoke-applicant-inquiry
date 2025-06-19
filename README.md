@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-Our letting estate agency receives numerous inquiries from property listing platforms (Zillow, Redfin, etc.) where applicants often don't meet basic requirements:
+Our letting estate agency receives numerous inquiries from property listing platforms (OnTheMarket, Rightmove, Zoopla, etc.) where applicants often don't meet basic requirements:
 - Income too low for the property
 - Want to bring pets to no-pet properties
 - Move-in dates that don't align with availability
@@ -23,7 +23,7 @@ Implement an automated screening system that filters applicants before manual re
 ## Technical Architecture
 
 ```
-Zillow/Redfin Inquiry Email → Outlook Rule → Power Automate → Microsoft Forms
+OnTheMarket/Rightmove/Zoopla Email → Power Automate Trigger → Extract Applicant Email → Send Form Directly to Applicant
                                                       ↓
                                 Response Validation ← Form Submission
                                                       ↓
@@ -33,11 +33,29 @@ Zillow/Redfin Inquiry Email → Outlook Rule → Power Automate → Microsoft Fo
 ## Solution: Power Automate + Microsoft Forms
 
 **Features:**
-- Native Outlook integration
+- Automatic email parsing to extract applicant contact details
+- Direct communication with applicants (bypassing platform)
 - Conditional email responses based on form answers
-- Automatic lead scoring
+- Automatic lead scoring and qualification
 - Integration with SharePoint/Excel for tracking
 - Teams notifications for qualified applicants
+
+## Email Domains to Monitor
+- `no-reply@expert.onthemarket.com`
+- `autoresponder@rightmove.com`
+- `members@zoopla.co.uk`
+
+## Power Automate Email Parsing
+
+**Automatic Extraction:**
+Power Automate will parse incoming emails to extract:
+- Applicant name (e.g., "Lee Mccarroll")
+- Applicant email address
+- Property details/address
+- Inquiry type
+
+**Direct Contact:**
+Instead of replying to the platform, Power Automate sends the screening form directly to the applicant's email address, creating a more personal and professional experience.
 
 ## Form Validation Logic
 
