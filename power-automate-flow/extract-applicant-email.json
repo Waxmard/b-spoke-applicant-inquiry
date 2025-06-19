@@ -1,0 +1,12 @@
+{
+  "type": "Compose",
+  "inputs": "@triggerOutputs()?['body/replyTo']",
+  "runAfter": {},
+  "runtimeConfiguration": {
+    "secureData": {
+      "properties": [
+        "inputs"
+      ]
+    }
+  }
+}

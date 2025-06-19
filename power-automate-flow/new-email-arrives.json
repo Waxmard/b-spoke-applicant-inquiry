@@ -1,0 +1,14 @@
+{
+  "type": "OpenApiConnectionNotification",
+  "inputs": {
+    "parameters": {
+      "from": "no-reply@expert.onthemarket.com;autoresponder@rightmove.com;members@zoopla.co.uk;maxward4@gmail.com"
+    },
+    "host": {
+      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+      "connection": "shared_office365",
+      "operationId": "OnNewEmailV3"
+    }
+  },
+  "splitOn": "@triggerOutputs()?['body/value']"
+}

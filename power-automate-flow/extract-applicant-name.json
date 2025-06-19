@@ -1,0 +1,16 @@
+{
+  "type": "Compose",
+  "inputs": "if(\n  contains(triggerOutputs()?['body/from'], 'rightmove'),\n  split(split(triggerOutputs()?['body/replyTo'], '<')[0], ' ')[0],\n  if(\n    contains(triggerOutputs()?['body/from'], 'onthemarket'),\n    replace(split(split(triggerOutputs()?['body/subject'], ' from ')[1], '.')[0], ' ', ' '),\n    if(\n      contains(triggerOutputs()?['body/from'], 'zoopla'),\n      split(split(triggerOutputs()?['body/subject'], ' from ')[1], ' via')[0],\n      'Unknown'\n    )\n  )\n)",
+  "runAfter": {
+    "Extract_Applicant_Email": [
+      "Succeeded"
+    ]
+  },
+  "runtimeConfiguration": {
+    "secureData": {
+      "properties": [
+        "inputs"
+      ]
+    }
+  }
+}

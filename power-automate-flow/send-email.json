@@ -1,0 +1,29 @@
+{
+  "type": "OpenApiConnection",
+  "inputs": {
+    "parameters": {
+      "emailMessage/To": "@outputs('Extract_Applicant_Email')",
+      "emailMessage/Subject": "Property Inquiry - Quick Screening Required",
+      "emailMessage/Body": "<p class=\"editor-paragraph\">Hi @{outputs('Extract_Applicant_Name')},<br><br>Thank you for your interest in our property! To ensure we match you with the right property and expedite your application, please complete this quick 2-minute screening:<br><br>https://forms.cloud.microsoft/e/WKEkXGqKhY<br><br>We'll respond within 24 hours of receiving your completed form.<br><br>Best regards,<br>B-Spoke Properties</p>",
+      "emailMessage/Importance": "Normal"
+    },
+    "host": {
+      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+      "connection": "shared_office365",
+      "operationId": "SendEmailV2"
+    }
+  },
+  "runAfter": {
+    "Extract_Applicant_Name": [
+      "Succeeded"
+    ]
+  },
+  "runtimeConfiguration": {
+    "secureData": {
+      "properties": [
+        "inputs",
+        "outputs"
+      ]
+    }
+  }
+}
