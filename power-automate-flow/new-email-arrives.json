@@ -10,5 +10,8 @@
       "operationId": "OnNewEmailV3"
     }
   },
-  "splitOn": "@triggerOutputs()?['body/value']"
+  "splitOn": "@triggerOutputs()?['body/value']",
+  "metadata": {
+    "operationMetadataId": "7ce85296-c581-4322-88d1-1c9811459bf3"
+  }
 }

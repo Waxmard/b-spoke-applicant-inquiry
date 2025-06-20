@@ -4,7 +4,7 @@
     "parameters": {
       "emailMessage/To": "@outputs('Extract_Applicant_Email')",
       "emailMessage/Subject": "Property Inquiry - Quick Screening Required",
-      "emailMessage/Body": "<p class=\"editor-paragraph\">Hi @{outputs('Extract_Applicant_Name')},<br><br>Thank you for your interest in our property! To ensure we match you with the right property and expedite your application, please complete this quick 2-minute screening:<br><br>https://forms.cloud.microsoft/e/WKEkXGqKhY<br><br>We'll respond within 24 hours of receiving your completed form.<br><br>Best regards,<br>B-Spoke Properties</p>",
+      "emailMessage/Body": "<p class=\"editor-paragraph\">&lt;p&gt;Hi there,&lt;/p&gt;<br><br>&lt;p&gt;Thank you for your interest in our property!&lt;/p&gt;<br><br>&lt;p&gt;To ensure we match you with the right property and expedite your application, please complete this quick 2-minute screening:&lt;/p&gt;<br><br>&lt;p&gt;&lt;a href=\"https://forms.cloud.microsoft/e/WKEkXGqKhY\"&gt;Click here to complete the screening form&lt;/a&gt;&lt;/p&gt;<br><br>&lt;p&gt;We'll respond within 24 hours of receiving your completed form.&lt;/p&gt;<br><br>&lt;p&gt;Best regards,&lt;br&gt;<br>B-Spoke Properties&lt;/p&gt;</p>",
       "emailMessage/Importance": "Normal"
     },
     "host": {
@@ -14,7 +14,7 @@
     }
   },
   "runAfter": {
-    "Extract_Applicant_Name": [
+    "Extract_Applicant_Email": [
       "Succeeded"
     ]
   },
@@ -25,5 +25,8 @@
         "outputs"
       ]
     }
+  },
+  "metadata": {
+    "operationMetadataId": "c079752e-3ba8-4930-bb17-00ad6d0b73fd"
   }
 }
