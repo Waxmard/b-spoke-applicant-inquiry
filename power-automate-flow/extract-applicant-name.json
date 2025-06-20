@@ -1,0 +1,12 @@
+{
+  "type": "Compose",
+  "inputs": "@if(contains(triggerOutputs()?['body/body'], 'Name:'), trim(first(split(first(skip(split(triggerOutputs()?['body/body'], 'Name:'), 1)), ';'))), '')",
+  "runAfter": {
+    "Extract_Applicant_Email": [
+      "Succeeded"
+    ]
+  },
+  "metadata": {
+    "operationMetadataId": "extract-name-001"
+  }
+}

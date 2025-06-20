@@ -1,0 +1,12 @@
+{
+  "type": "Compose",
+  "inputs": "@if(contains(triggerOutputs()?['body/body'], 'PropAddress:'), trim(first(split(first(skip(split(triggerOutputs()?['body/body'], 'PropAddress:'), 1)), ';'))), '')",
+  "runAfter": {
+    "Extract_Applicant_Name": [
+      "Succeeded"
+    ]
+  },
+  "metadata": {
+    "operationMetadataId": "extract-property-address-001"
+  }
+}

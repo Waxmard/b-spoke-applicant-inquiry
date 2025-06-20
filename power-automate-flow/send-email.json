@@ -4,7 +4,7 @@
     "parameters": {
       "emailMessage/To": "@outputs('Extract_Applicant_Email')",
       "emailMessage/Subject": "Property Inquiry - Quick Screening Required",
-      "emailMessage/Body": "<p class=\"editor-paragraph\">&lt;p&gt;Hi there,&lt;/p&gt;<br><br>&lt;p&gt;Thank you for your interest in our property!&lt;/p&gt;<br><br>&lt;p&gt;To ensure we match you with the right property and expedite your application, please complete this quick 2-minute screening:&lt;/p&gt;<br><br>&lt;p&gt;&lt;a href=\"https://forms.cloud.microsoft/e/WKEkXGqKhY\"&gt;Click here to complete the screening form&lt;/a&gt;&lt;/p&gt;<br><br>&lt;p&gt;We'll respond within 24 hours of receiving your completed form.&lt;/p&gt;<br><br>&lt;p&gt;Best regards,&lt;br&gt;<br>B-Spoke Properties&lt;/p&gt;</p>",
+      "emailMessage/Body": "<p class=\"editor-paragraph\">&lt;p&gt;Hi @{outputs('Extract_Applicant_Name')},&lt;/p&gt;<br><br>&lt;p&gt;Thank you for your interest in our property at @{outputs('Extract_Property_Address')} (Ref: @{outputs('Extract_Property_Reference')})!&lt;/p&gt;<br><br>&lt;p&gt;To ensure we match you with the right property and expedite your application, please complete this quick 2-minute screening:&lt;/p&gt;<br><br>&lt;p&gt;&lt;a href=\"https://forms.cloud.microsoft/e/WKEkXGqKhY?name=@{encodeUriComponent(outputs('Extract_Applicant_Name'))}&amp;email=@{encodeUriComponent(outputs('Extract_Applicant_Email'))}&amp;property=@{encodeUriComponent(outputs('Extract_Property_Address'))}&amp;ref=@{encodeUriComponent(outputs('Extract_Property_Reference'))}\"&gt;Click here to complete the screening form&lt;/a&gt;&lt;/p&gt;<br><br>&lt;p&gt;We'll respond within 24 hours of receiving your completed form.&lt;/p&gt;<br><br>&lt;p&gt;Best regards,&lt;br&gt;<br>B-Spoke Properties&lt;/p&gt;</p>",
       "emailMessage/Importance": "Normal"
     },
     "host": {
@@ -14,7 +14,7 @@
     }
   },
   "runAfter": {
-    "Extract_Applicant_Email": [
+    "Extract_Property_Reference": [
       "Succeeded"
     ]
   },
